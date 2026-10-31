@@ -20,6 +20,19 @@ npm run build
 npm run preview
 ```
 
+## Run with Docker
+Build and start the production container:
+```bash
+docker compose up --build
+```
+Open http://localhost:3000. Stop the container with `Ctrl+C` (or run `docker compose down` in another terminal).
+
+The API base URL is embedded in the frontend at build time. To override the default (`http://localhost:8080/api/v1`):
+```bash
+VITE_API_BASE_URL=https://api.example.com/api/v1 docker compose up --build
+```
+Only use public frontend configuration here; do not pass credentials or other secrets as Vite variables.
+
 ## Included screens
 - Dashboard overview
 - Billing counter with barcode/search input, cart and payment modal
